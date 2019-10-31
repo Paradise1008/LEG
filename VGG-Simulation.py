@@ -1,9 +1,5 @@
-#!/usr/bin/env python
+# python
 # coding: utf-8
-
-# In[5]:
-
-
 ##Import the required packages
 from LEG import * 
 
