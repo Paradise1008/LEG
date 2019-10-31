@@ -1,9 +1,5 @@
-#!/usr/bin/env python
+# python
 # coding: utf-8
-
-# In[1]:
-
-
 ##Import the required packages
 import os
 import keras
