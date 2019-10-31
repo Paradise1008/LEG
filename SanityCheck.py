@@ -1,9 +1,5 @@
-#!/usr/bin/env python
+# python
 # coding: utf-8
-
-# In[2]:
-
-
 from LEG import * 
 class Image_Obj:
     def __init__(self,name,Noise,Lambda):
