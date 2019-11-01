@@ -57,12 +57,12 @@ for i, val in enumerate(List):
     preds = vgg_model.predict(image_input)
     chosen_class = np.argmax(preds)        
     task = LEG_Explain(vgg_model, image0, val.name , np.array([val.Noise]) , np.array([val.Lambda]) ,sampling_size = 200, conv = 8,chosen_class=chosen_class)
-    generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'.jpg',style = "heatmap_only",showOption=True, direction="all")
+    generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'_gray.jpg',style = "gray",showOption=True, direction="all")
 
 ```
 The result is shown below:
-<img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark.jpg" width=200 />
-<img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer.jpg" width=200 />
+<img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 />
+<img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 />
 
 
 You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Refering to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the papaer since we adopt smaller sample size here. 
