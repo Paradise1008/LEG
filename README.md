@@ -11,7 +11,7 @@ A new saliency estimation framework for explaining black box computer vision mod
 
 
 ## Prerequisites
-Here is the list of packages used in LEG. Please make sure they are properly installed before running LEG.
+There is a list of packages deployed in LEG. Please make sure they are properly installed before use.
 * [cvxpy](https://github.com/cvxgrp/cvxpy) 
 * [Mosek](https://www.mosek.com/documentation/)
 * [Keras](https://www.mosek.com/documentation/)
@@ -19,22 +19,50 @@ Here is the list of packages used in LEG. Please make sure they are properly ins
 * [skimage](https://github.com/scikit-image/scikit-image)
 
 ## Usage
-Please note that the 
+You can simply call LEG_Explain funtion like following:
 ```python
 LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size, conv)
 ```
-which returns list including the solution, lambda and noise 
+which returns a list including the solution, lambda and noise level. 
 
 
-We also provide a customized function for heatmap visualization.
+We also provide a customized function for visualization.
 ```python
-generateHeatmap(image0,heatmap,name,style)
+generateHeatmap(image0,heatmap,result_path,name,style,showOption,direction)
 ```
 
-Here is a toy example:
+Following is a toy example:
+```python
+##Import the required packages
+from LEG import * 
+
+class Image_Obj:
+    def __init__(self,name,Noise,Lambda):
+        self.name = name
+        self.Noise = Noise
+        self.Lambda = Lambda
+List = []
+List.append(Image_Obj("shark",0.3,0.075))
+List.append(Image_Obj("soccer",0.3,0.075))
 
 
-You can modify the class object in order to get your own interpretation
+image_folder = "Image"
+vgg_model = vgg19.VGG19(include_top =True)
+for i, val in enumerate(List):
+    image0 = image.load_img(os.path.join(image_folder,val.name+'.jpg'), target_size=(224,224))
+    image0 = image.img_to_array(image0)
+    image_input = np.expand_dims(image0.copy(),axis=0)
+    image_input = vgg19.preprocess_input(image_input)
+    preds = vgg_model.predict(image_input)
+    chosen_class = np.argmax(preds)        
+    task = LEG_Explain(vgg_model, image0, val.name , np.array([val.Noise]) , np.array([val.Lambda]) ,sampling_size = 200, conv = 8,chosen_class=chosen_class)
+    generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'.jpg',style = "heatmap_only",showOption=True, direction="all")
+
+```
+
+You can modify the class object in order to get explanation of other images in the 'Image' folder.
+
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
