@@ -9,14 +9,16 @@
 
 A new saliency estimation framework for explaining black box computer vision models. Here we provide the python implementation of LEG.
 
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 There is a list of packages deployed in LEG. Please make sure they are properly installed before use.
 * [cvxpy](https://github.com/cvxgrp/cvxpy) 
 * [Mosek](https://www.mosek.com/documentation/)
 * [Keras](https://www.mosek.com/documentation/)
 * [matplotlib](https://matplotlib.org/users/installing.html)
 * [skimage](https://github.com/scikit-image/scikit-image)
+
 
 ## Usage
 You can simply call LEG_Explain funtion like following:
@@ -59,9 +61,11 @@ for i, val in enumerate(List):
 
 ```
 The result is shown below:
+<img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark.jpg" width=200 />
+<img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer.jpg" width=200 />
 
 
-You can modify the content of 'List'(an 'Image_Obj' class) to get explanation of other images with different parameters. Refering to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases.  
+You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Refering to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the papaer since we adopt smaller sample size here. 
 
 
 
