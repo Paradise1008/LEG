@@ -5,9 +5,9 @@
 
 
 
-# LEG
+# LEG(Linearly Estimated Gradient)
 
-This is the implementaion of the LEG estimator for VGG19
+A new saliency estimation framework for explaining black box computer vision models. Here we provide the python implementation of LEG.
 
 
 ## Prerequisites
@@ -16,6 +16,7 @@ Here is the list of packages used in LEG. Please make sure they are properly ins
 * [Mosek](https://www.mosek.com/documentation/)
 * [Keras](https://www.mosek.com/documentation/)
 * [matplotlib](https://matplotlib.org/users/installing.html)
+* [skimage](https://github.com/scikit-image/scikit-image)
 
 ## Usage
 Please note that the 
@@ -24,10 +25,16 @@ LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size,
 ```
 which returns list including the solution, lambda and noise 
 
+
+We also provide a customized function for heatmap visualization.
 ```python
 generateHeatmap(image0,heatmap,name,style)
 ```
-which is used to visualize LEG
+
+Here is a toy example:
+
+
+You can modify the class object in order to get your own interpretation
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
