@@ -23,8 +23,7 @@ You can simply call LEG_Explain funtion like following:
 ```python
 LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size, conv)
 ```
-which returns a list including the solution, lambda and noise level. 
-
+which returns a list including the solution, lambda and noise level. Note that noise_lvl and lambda_lvl are designed to be array type for batching consideration. 
 
 We also provide a customized function for visualization.
 ```python
@@ -59,8 +58,10 @@ for i, val in enumerate(List):
     generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'.jpg',style = "heatmap_only",showOption=True, direction="all")
 
 ```
+The result is shown below:
 
-You can modify the class object in order to get explanation of other images in the 'Image' folder.
+
+You can modify the content of 'List'(an 'Image_Obj' class) to get explanation of other images with different parameters. Refering to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases.  
 
 
 
