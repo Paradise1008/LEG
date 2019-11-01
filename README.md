@@ -21,16 +21,17 @@ There is a list of packages deployed in LEG. Please make sure they are properly 
 
 
 ## Usage
-You can simply call LEG_Explain funtion like following:
+Simply call LEG_Explain() funtion like this:
 ```python
 LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size, conv)
 ```
-which returns a list including the solution, lambda and noise level. Note that noise_lvl and lambda_lvl are designed to be array type for batching consideration. 
+which returns a list including the solution(.sol), lambda(.lbd) and noise level(.sz). Note that noise_lvl and lambda_lvl are designed to be array type for batching consideration. 
 
 We also provide a customized function for visualization.
 ```python
 generateHeatmap(image0,heatmap,result_path,name,style,showOption,direction)
 ```
+You can choose "heatmap_only" or "gray" style or obtain the positive or negative values by direction option for different purposes.
 
 Following is a toy example:
 ```python
@@ -60,13 +61,13 @@ for i, val in enumerate(List):
     generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'_gray.jpg',style = "gray",showOption=True, direction="all")
 
 ```
-The result is shown below:
+The results are shown below:
 
 
 <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 />
 
 
-You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Refering to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the papaer since we adopt smaller sample size here. 
+You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Referring to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the paper since we adopt smaller sample size here. 
 
 
 
