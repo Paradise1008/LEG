@@ -3,13 +3,19 @@
 [![Issues][issues-shield]][issues-url]
 
 
-Prerequisites
 
 
 # LEG
 
 This is the implementaion of the LEG estimator for VGG19
 
+
+## Prerequisites
+Here is the list of packages used in LEG. Please make sure they are properly installed before running LEG.
+* [cvxpy](https://github.com/cvxgrp/cvxpy) 
+* [Mosek](https://www.mosek.com/documentation/)
+* [Keras](https://www.mosek.com/documentation/)
+* [matplotlib](https://matplotlib.org/users/installing.html)
 
 ## Usage
 Please note that the 
