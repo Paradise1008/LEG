@@ -26,7 +26,7 @@ which is used to visualize LEG
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forksParadise1008/LEG.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/Paradise1008/LEG.svg?style=flat-square
 [forks-url]: https://github.com/Paradise1008/LEG/network/members
 [stars-shield]: https://img.shields.io/github/stars/Paradise1008/LEG.svg?style=flat-square
 [stars-url]: https://github.com/Paradise1008/LEG/stargazers
