@@ -71,7 +71,7 @@ The results are then saved in the `Result` folder.
 
 <!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
-You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.3] as the noise level, and using [0.075] as the lambda value. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the paper as we use smaller sample sizes in the provided code. 
+You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.3] as the noise level, and using [0.075] as the lambda value. Plesae note that the results in the `Result` and `SC_Result` folders may not be the same as the heatmaps in the paper, as the provided code uses a smaller sample size.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
