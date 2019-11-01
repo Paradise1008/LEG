@@ -61,6 +61,8 @@ for i, val in enumerate(List):
 
 ```
 The result is shown below:
+
+
 <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 />
 <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 />
 
