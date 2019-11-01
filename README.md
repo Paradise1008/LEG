@@ -1,6 +1,6 @@
-[![Forks][forks-shield]][forks-url]
+<!--  [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![Issues][issues-shield]][issues-url]-->
 
 
 
@@ -67,10 +67,9 @@ for i, val in enumerate(List):
     generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'_gray.jpg',style = "gray",showOption=True, direction="all")
 
 ```
-The results are shown below:
+The results can be found in `Result` folder.
 
-
-<img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 />
+<!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
 
 You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Referring to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the paper since we adopt smaller sample size here. 
