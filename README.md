@@ -19,6 +19,12 @@ There is a list of packages deployed in LEG. Please make sure they are properly 
 * [matplotlib](https://matplotlib.org/users/installing.html)
 * [skimage](https://github.com/scikit-image/scikit-image)
 
+### Documentaiton
+
+* Run `VGG-Simulation.py` to obtain LEG heatmaps. Results are stored in `Result` folder.
+* Run `SanityCheck.py` to implement Sanity Check. Results are stored in `SC_Result` folder.
+* `PerturbationSize` folder contains implementations of comparison with other popular techniques.
+
 
 ## Usage
 Simply call LEG_Explain() funtion like this:
