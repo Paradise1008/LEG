@@ -7,37 +7,37 @@
 
 # LEG(Linearly Estimated Gradient)
 
-A new saliency estimation framework for explaining black box computer vision models. Here we provide the python implementation of LEG.
-
 ## Getting Started
 
 ### Prerequisites
-There is a list of packages deployed in LEG. Please make sure they are properly installed before use.
+
+Please make sure that the following packages are installed.
+
 * [cvxpy](https://github.com/cvxgrp/cvxpy) 
 * [Mosek](https://www.mosek.com/documentation/)
 * [Keras](https://www.mosek.com/documentation/)
 * [matplotlib](https://matplotlib.org/users/installing.html)
 * [skimage](https://github.com/scikit-image/scikit-image)
 
-### Documentaiton
+### Documentation
 
-* Run `VGG-Simulation.py` to obtain LEG heatmaps. Results are stored in `Result` folder.
-* Run `SanityCheck.py` to implement Sanity Check. Results are stored in `SC_Result` folder.
-* `PerturbationSize` folder contains implementations of comparison with other popular techniques.
-
+* `VGG-Simulation.py`: Creates LEG heatmaps. Results are stored in the `Result` folder.
+* `SanityCheck.py`: Implements Sanity Check. Results are stored in the `SC_Result` folder.
+* `PerturbationSize`: This folder contains sensitivity analysis comparisons with other popular saliency estimation techniques.
 
 ## Usage
-Simply call LEG_Explain() funtion like this:
+
+The `LEG_Explain()` function is called with the following inputs:
 ```python
 LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size, conv)
 ```
-which returns a list including the solution(.sol), lambda(.lbd) and noise level(.sz). Note that noise_lvl and lambda_lvl are designed to be array type for batching consideration. 
+The function returns a list including the solution `(.sol)`, lambda `(.lbd)` and noise level `(.sz)`. Note that `noise_lvl` and `lambda_lvl` are both arrays. 
 
-We also provide a customized function for visualization.
+We also provide a customized function for visualization:
 ```python
 generateHeatmap(image0,heatmap,result_path,name,style,showOption,direction)
 ```
-You can choose "heatmap_only" or "gray" style or obtain the positive or negative values by direction option for different purposes.
+You can choose the "heatmap_only" or "gray" styles or alternatively obtain the positive or negative values by using the direction option.
 
 Following is a toy example:
 ```python
@@ -67,15 +67,11 @@ for i, val in enumerate(List):
     generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'_gray.jpg',style = "gray",showOption=True, direction="all")
 
 ```
-The results can be found in `Result` folder.
+The results are then saved in the `Result` folder.
 
 <!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
-
-You can modify the content of `List`(an `Image_Obj` class) to get explanation of other images with different parameters. Referring to the choice of parameters, we suggest set [0.3] as the noise level to achieve moderate perturbation and [0.075] as the lambda value for  better interpretation in most cases. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the paper since we adopt smaller sample size here. 
-
-
-
+You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.3] as the noise level, and using [0.075] as the lambda value. Note that the results in Result or SC_Result folders may not be exact same as the heatmaps in the paper as we use smaller sample sizes in the provided code. 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
