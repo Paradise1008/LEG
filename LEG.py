@@ -124,7 +124,7 @@ def makeitnoisy2(input_x,Sigma,smooth,channel_index):   ##Perturbation on images
         noisyimg100 = noisyimg1.copy()
         if channel_index == -1:
             for k in range(3):
-                noisyimg100[:,:,k] = my_2ddeconv(noisyimg11, 8)
+                noisyimg100[:,:,k] = my_2ddeconv(noisyimg11, C)
             noisyimg100[C:(S-C),C:(S-C),:] = noisyimg1[C:(S-C),C:(S-C),:]
         else:
             noisyimg100 = noisyimg1
@@ -179,7 +179,7 @@ def compute_Y(model,sampling_size,input_x,Sigma,chosen_class,channel):
         b = preds[0,chosen_class]
         temp_model_f = b - a   
         model_y[i,0] = temp_model_f  
-        model_x[i,:] = my_conv(rand_new,8,-1).flatten()
+        model_x[i,:] = my_conv(rand_new,C,-1).flatten()
         Y += 1/sampling_size*temp_model_f*(-rand_new)
 
         rand_new = input_x/255.0 - perturb_img2.copy()
