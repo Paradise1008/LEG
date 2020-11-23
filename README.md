@@ -5,8 +5,8 @@
 
 
 
-# LEGv0(Linearly Estimated Gradient)
-
+# LEG(Linearly Estimated Gradient)
+##### version v1.0
 ## Getting Started
 
 ### Prerequisites
