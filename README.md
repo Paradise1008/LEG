@@ -5,7 +5,7 @@
 
 
 
-# LEG(Linearly Estimated Gradient)
+# LEGv0(Linearly Estimated Gradient)
 
 ## Getting Started
 
