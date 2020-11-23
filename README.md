@@ -49,7 +49,7 @@ from methods.LEGv0 import *
 if __name__ == "__main__":
     print("We are excuting LEG program", __name__)
     # read the image
-    img = image.load_img('images/trafficlight.jpg', target_size=(224,224))
+    img = image.load_img('Image/trafficlight.jpg', target_size=(224,224))
     img = image.img_to_array(img).astype(int)
     image_input = np.expand_dims(img.copy(), axis = 0)
     image_input = preprocess_input(image_input)
