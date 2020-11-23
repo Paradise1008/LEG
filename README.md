@@ -80,7 +80,7 @@ The results are then saved in the `Result` folder.
 
 <!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
-You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.02] as the noise level, and using [0.1, 0.3] as lambda values. Plesae note that the change the path for the images for reproducibility.
+For the choice of parameters, we suggest using [0.02] as the noise level, and using [0.1, 0.3] as lambda values. Plesae modify the path for each file in terms of reproducibility.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
