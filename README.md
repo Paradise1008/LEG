@@ -6,7 +6,7 @@
 
 
 # LEG(Linearly Estimated Gradient)
-##### version v1.0
+#####v1.0
 ## Getting Started
 
 ### Prerequisites
@@ -21,23 +21,23 @@ Please make sure that the following packages are installed.
 
 ### Documentation
 
-* `VGG-Simulation.py`: Creates LEG heatmaps. Results are stored in the `Result` folder.
-* `SanityCheck.py`: Implements Sanity Check. Results are stored in the `SC_Result` folder.
-* `PerturbationSize`: This folder contains sensitivity analysis comparisons with other popular saliency estimation techniques.
+* `methods/LEGv0.py`: Implementation of LEG explainer.
+* `ImageNetExp.py`: Create the 500 LEG and LEG-TV explanations on ImageNet.
+* `Sanity/`: Implementation of cascading randomizations.
 
 ## Usage
 
-The `LEG_Explain()` function is called with the following inputs:
+The `LEG_explainer` function is called with the following basic inputs:
 ```python
-LEG_Explain(vgg_model, image0, filename , noise_lvl , lambda_lvl ,sampling_size, conv)
+ LEG_explainer(inputs, model, predict_func, penalty, noise_lvl, lambda_arr, num_sample):
 ```
-The function returns a list including the solution `(.sol)`, lambda `(.lbd)` and noise level `(.sz)`. Note that `noise_lvl` and `lambda_lvl` are both arrays. 
+The function returns lists for all inputs. Each list contains the saliency map, original image, prediction of original image and corresponding lambda level for saliency map in turn. 
 
 We also provide a customized function for visualization:
 ```python
-generateHeatmap(image0,heatmap,result_path,name,style,showOption,direction)
+generateHeatmap(image, heatmap, name, style, show_option, direction):
 ```
-You can choose the "heatmap_only" or "gray" styles or alternatively obtain the positive or negative values by using the direction option.
+You can choose the "heatmap_only", "gray" or "overlay" style for the heatmap and decide whether display original saliency or its absolute value by the direction option.
 
 Following is a toy example:
 ```python
@@ -71,7 +71,7 @@ The results are then saved in the `Result` folder.
 
 <!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
-You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.3] as the noise level, and using [0.075] as the lambda value. Plesae note that the results in the `Result` and `SC_Result` folders may not be the same as the heatmaps in the paper, as the provided code uses a smaller sample size.
+You can modify the content of `List`(an `Image_Obj` class) to get explanations for other images with different parameters. For the choice of parameters, we suggest using [0.02] as the noise level, and using [0.1, 0.3] as lambda values. Plesae note that the change the path for the images for reproducibility.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
