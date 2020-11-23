@@ -24,8 +24,8 @@ Please make sure that the following packages are installed.
 * `methods/LEGv0.py`: Implementation of LEG explainer.
 * `ImageNetExp.py`: Create the 500 LEG and LEG-TV explanations on ImageNet.
 * `Sanity/`: folder including implementations of cascading randomizations on LeNet-5 in MNIST and VGG-19 in ImageNet dataset.
-* `Plots/ :`
-* `table/key`: 
+* `Plots/ :` Implementations of plots in papers including sensitivity analysis.
+* `table/keysizetable.py`:Implementation of computing key size for each saliency method.
 
 ## Usage
 
