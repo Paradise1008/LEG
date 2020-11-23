@@ -1,4 +1,4 @@
-#C-Shapley implementation regression estimation
+#C-Shapley implementation regression estimation with only squares structure
 
 # Load packages
 
