@@ -6,7 +6,7 @@
 
 
 # LEG(Linearly Estimated Gradient)
-#####v1.0
+##### v1.0
 ## Getting Started
 
 ### Prerequisites
@@ -23,7 +23,9 @@ Please make sure that the following packages are installed.
 
 * `methods/LEGv0.py`: Implementation of LEG explainer.
 * `ImageNetExp.py`: Create the 500 LEG and LEG-TV explanations on ImageNet.
-* `Sanity/`: Implementation of cascading randomizations.
+* `Sanity/`: folder including implementations of cascading randomizations on LeNet-5 in MNIST and VGG-19 in ImageNet dataset.
+* `Plots/ :`
+* `table/key`: 
 
 ## Usage
 
@@ -42,30 +44,37 @@ You can choose the "heatmap_only", "gray" or "overlay" style for the heatmap and
 Following is a toy example:
 ```python
 ##Import the required packages
-from LEG import * 
+from methods.LEGv0 import * 
 
-class Image_Obj:
-    def __init__(self,name,Noise,Lambda):
-        self.name = name
-        self.Noise = Noise
-        self.Lambda = Lambda
-List = []
-List.append(Image_Obj("shark",0.3,0.075))
-List.append(Image_Obj("soccer",0.3,0.075))
+if __name__ == "__main__":
+    print("We are excuting LEG program", __name__)
+    # read the image
+    img = image.load_img('images/trafficlight.jpg', target_size=(224,224))
+    img = image.img_to_array(img).astype(int)
+    image_input = np.expand_dims(img.copy(), axis = 0)
+    image_input = preprocess_input(image_input)
+    print("Image has been read successfully")
 
+    # read the model
+    VGG19_MODEL = VGG19(include_top = True)
+    print("VGG19 has been imported successfully")
+    # make the prediction of the image by the vgg19
+    preds = VGG19_MODEL.predict(image_input)
+    for pred_class in decode_predictions(preds)[0]:
+        print(pred_class)
+    chosen_class = np.argmax(preds)
+    print("The Classfication Category is ", chosen_class)
+    begin_time = time()
 
-image_folder = "Image"
-vgg_model = vgg19.VGG19(include_top =True)
-for i, val in enumerate(List):
-    image0 = image.load_img(os.path.join(image_folder,val.name+'.jpg'), target_size=(224,224))
-    image0 = image.img_to_array(image0)
-    image_input = np.expand_dims(image0.copy(),axis=0)
-    image_input = vgg19.preprocess_input(image_input)
-    preds = vgg_model.predict(image_input)
-    chosen_class = np.argmax(preds)        
-    task = LEG_Explain(vgg_model, image0, val.name , np.array([val.Noise]) , np.array([val.Lambda]) ,sampling_size = 200, conv = 8,chosen_class=chosen_class)
-    generateHeatmap(image0,task[0].sol,result_path="Result",name = val.name+'_gray.jpg',style = "gray",showOption=True, direction="all")
-
+    LEG = LEG_explainer(np.expand_dims(img.copy(), axis = 0), VGG19_MODEL, predict_vgg19, num_sample = 10000, penalty=None)
+    LEGTV = LEG_explainer(np.expand_dims(img.copy(), axis = 0), VGG19_MODEL, predict_vgg19, num_sample = 10000, penalty='TV', lambda_arr = [0.1, 0.3])
+    end_time = time()
+    plt.imshow(LEG[0][0], cmap='hot', interpolation="nearest")
+    plt.show() #change the backend of matplotlib if it can not be displayed 
+    plt.imshow(LEGTV[0][0], cmap='hot', interpolation="nearest")
+    plt.show()
+    
+    print("The time spent on LEG explanation is ",round((end_time - begin_time)/60,2), "mins") 
 ```
 The results are then saved in the `Result` folder.
 
