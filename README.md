@@ -76,7 +76,6 @@ if __name__ == "__main__":
     
     print("The time spent on LEG explanation is ",round((end_time - begin_time)/60,2), "mins") 
 ```
-The results are then saved in the `Result` folder.
 
 <!-- <img src="https://github.com/Paradise1008/LEG/blob/master/Result/shark_gray.jpg" width=400 /> <img src="https://github.com/Paradise1008/LEG/blob/master/Result/soccer_gray.jpg" width=400 /> -->
 
