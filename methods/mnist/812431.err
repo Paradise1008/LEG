@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "mnist_GradCam.py", line 70, in <module>
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+NameError: name 'mnist' is not defined

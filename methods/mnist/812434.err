@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "mnist_GradCam.py", line 73, in <module>
+    if K.image_data_format() == 'channels_first':
+NameError: name 'K' is not defined
