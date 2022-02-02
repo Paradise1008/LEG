@@ -6,6 +6,7 @@
 
 
 # LEG(Linearly Estimated Gradient)
+ <font size="10"> fork from [Linearly Estimated Gradient](https://github.com/Paradise1008/LEG)</font>
 ##### v1.0
 ## Getting Started
 
