@@ -1,4 +1,4 @@
-#Sanity Check in MNIST dataset##
+`#Sanity Check in MNIST dataset##
 import sys
 sys.path.append('../')
 from methods.LEGv0 import *

@@ -1,7 +1,8 @@
 ##Make the plots with masked parts with different schemes
 import sys
 sys.path.append('../')
-from methods.LEGv0 import *
+from keras.preprocessing import image
+from ..methods.LEGv0 import *
 from matplotlib import gridspec
 ##########
 
@@ -14,7 +15,9 @@ rows = []
 PLOT_DATA = []
 
 for i in range(len(picture_id)):
-    img= image.load_img('C:/Users/luosh/Desktop/CVPR-LEG-CODE/imagenet/images/'+str(picture_id[i])+'.png', target_size=(224,224))
+    # img= image.load_img('C:/Users/luosh/Desktop/CVPR-LEG-CODE/imagenet/images/'+str(picture_id[i])+'.png', target_size=(224,224))
+    img = image.load_img('/home/zhou/Documents/github/XAI/LEG/Image/yorkie2.jpg', target_size=(224, 224))
+
     img = image.img_to_array(img).astype(int)
     image_input = np.expand_dims(img.copy(), axis = 0)
     image_input = preprocess_input(image_input)

@@ -1,4 +1,4 @@
-# Implementaion of LEG/LEG-TV 
+# Implementaion of LEG/LEG-TV
 # Load packages
 import keras
 import tensorflow as tf
